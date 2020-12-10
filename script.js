@@ -12,7 +12,6 @@ var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
 function writePassword() {
   //alert("Hello world")
   // User input variables:
@@ -20,8 +19,6 @@ function writePassword() {
   var passwordLengthAns = prompt("How many characters do you want for your password?");
 
   var addNumber =  confirm("Do you want numbers in your password?");
-
-  var addVowels = confirm("Do you want vowels in your password?");
 
   var addUpper = confirm("Do you want uppercase letter's?")
 
@@ -32,8 +29,6 @@ function writePassword() {
 
   var numberPool = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-  var vowelPool = ['a', 'e', 'i', 'o', 'u'];
-
   var lowerPool = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
   var upperPool = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -41,8 +36,6 @@ function writePassword() {
   var symbolPool = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
   var myPassword = '';
-
-  // var randomVowel = vowelPool[Math.floor(Math.random() * (vowelPool.length-1))]
 
   // var randomNumber = numberPool[Math.floor(Math.random() * (numberPool.length-1))]
 
@@ -53,7 +46,6 @@ function writePassword() {
   // var randomSymbol = symbolPool[Math.floor(Math.random() * (symbolPool.length-1))]
 
   // console.log(randomNumber);
-  // console.log(randomVowel);
   // console.log(randomLower);
   // console.log(randomUpper);
   // console.log(randomSymbol);
@@ -64,9 +56,6 @@ function writePassword() {
 
   if(addNumber) {
     oneBigPool = oneBigPool.concat(numberPool);
-  }
-  if(addVowels) {
-    oneBigPool = oneBigPool.concat(vowelPool);
   }
   if(addUpper) {
     oneBigPool = oneBigPool.concat(upperPool);
@@ -94,6 +83,11 @@ function writePassword() {
 
   passwordText.value = myPassword;
 
+  	// Doesn't have a selected type
+	if(typesCount === 0) {
+		return '';
+	}
+	
   ////////////// discussing for loop
 
   for (let index = 0;
